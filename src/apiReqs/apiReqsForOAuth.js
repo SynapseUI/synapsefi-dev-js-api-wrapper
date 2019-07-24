@@ -10,9 +10,12 @@ module.exports[POST_OAUTH_USER] = ({ bodyParams, userInfo }) => {
 
   const reqBody = bodyParams !== undefined ? bodyParams : { refresh_token };
 
+  const { email, password } = bodyParams;
+  const isLoginURL = email && password;
+
   return axios.post(
     replacePathParams({
-      originalUrl: `${host}${staticEndpoints[POST_OAUTH_USER]}`,
+      originalUrl: `${host}${staticEndpoints[POST_OAUTH_USER]}${isLoginURL ? '/login' : ''}`,
       user_id,
     }),
     reqBody,
