@@ -9,6 +9,7 @@ const {
   GET_USER,
   PATCH_ADD_NEW_DOCUMENTS,
   PATCH_UPDATE_DOCUMENTS,
+  PATCH_UPDATE_REG_GG,
   PATCH_DELETE_BASE_DOC,
   PATCH_DELETE_SUB_DOCS,
   PATCH_UPDATE_USER,
@@ -113,6 +114,28 @@ module.exports[PATCH_UPDATE_DOCUMENTS] = ({ bodyParams, documents, userInfo }) =
     { headers }
   );
 };
+
+
+/**
+ * TODO: Test this call
+ * `user_id` is passed in via staticEndpoints
+ * `document_id` is passed in the req.body
+ */
+
+module.exports[PATCH_UPDATE_REG_GG] = ({ bodyParams = {}, userInfo }) => {
+  const { user_id, host, headers } = userInfo;
+
+  const queryAddedUrl = addQueryParams({
+    originalUrl: `${host}${staticEndpoints[PATCH_UPDATE_REG_GG]}`,
+  });
+
+  return axios.patch(
+    replacePathParams({ originalUrl: queryAddedUrl, user_id }),
+    bodyParams,
+    { headers }
+  );
+};
+
 
 module.exports[PATCH_DELETE_BASE_DOC] = ({ bodyParams, baseDocId, userInfo }) => {
   const { user_id, host, headers } = userInfo;
