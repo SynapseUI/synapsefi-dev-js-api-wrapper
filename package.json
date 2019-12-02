@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "test": "mocha --recursive --timeout 100000",
-    "test-nodes": "mocha --recursive test/nodesTests/*.js --timeout 100000",
+    "test-nodes": "mocha --recursive test/nodesTests/GET_NODE.test.js --timeout 100000",
     "build": "babel src -d dist",
     "clean": "rm -rf dist",
     "dist": "npm run clean && npm run build",

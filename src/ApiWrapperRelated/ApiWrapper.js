@@ -280,9 +280,11 @@ class ApiWrapper {
     });
   }
 
-  GET_NODE({ node_id }) {
+  GET_NODE({ node_id, full_dehydrate, force_refresh }) {
     return apiRequests.nodes[GET_NODE]({
       node_id,
+      full_dehydrate,
+      force_refresh,
       userInfo: this,
     });
   }
