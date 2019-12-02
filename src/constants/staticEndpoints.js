@@ -37,7 +37,7 @@ module.exports = {
   [apiReqNames.GET_NODE_TYPES]: `/${VERSION}/nodes/types`,
   [apiReqNames.GET_ALL_CLIENT_NODES]: `/${VERSION}/nodes`,
   [apiReqNames.GET_ALL_USER_NODES]: `/${VERSION}/users/:user_id/nodes`,
-  [apiReqNames.GET_NODE]: `/${VERSION}/users/:user_id/nodes/:node_id?full_dehydrate=yes&force_refresh=yes`,
+  [apiReqNames.GET_NODE]: `/${VERSION}/users/:user_id/nodes/:node_id`,
   [apiReqNames.POST_CREATE_NODE]: `/${VERSION}/users/:user_id/nodes`,
   [apiReqNames.DELETE_NODE]: `/${VERSION}/users/:user_id/nodes/:node_id`,
   [apiReqNames.POST_ACH_WITH_LOGIN]: `/${VERSION}/users/:user_id/nodes`,

@@ -119,7 +119,7 @@ module.exports[DELETE_NODE] = ({ node_id, userInfo }) => {
   );
 };
 
-module.exports[GET_NODE] = ({ node_id, userInfo }) => {
+module.exports[GET_NODE] = ({ node_id, userInfo, full_dehydrate = false, force_refresh = false }) => {
   const { oauth_key, host, user_id, fingerprint, ip_address } = userInfo;
 
   return axios.get(
@@ -127,6 +127,8 @@ module.exports[GET_NODE] = ({ node_id, userInfo }) => {
       originalUrl: `${host}${staticEndpoints[GET_NODE]}`,
       user_id,
       node_id,
+      full_dehydrate,
+      force_refresh
     }),
     {
       headers: buildHeaders({
