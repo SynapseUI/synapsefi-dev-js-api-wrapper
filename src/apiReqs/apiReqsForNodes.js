@@ -119,7 +119,7 @@ module.exports[DELETE_NODE] = ({ node_id, userInfo }) => {
   );
 };
 
-module.exports[GET_NODE] = ({ node_id, userInfo, full_dehydrate = false, force_refresh = false }) => {
+module.exports[GET_NODE] = ({ node_id, userInfo, full_dehydrate = true, force_refresh = false }) => {
   const { oauth_key, host, user_id, fingerprint, ip_address } = userInfo;
 
   return axios.get(
