@@ -9,8 +9,7 @@ module.exports[POST_OAUTH_USER] = ({ bodyParams, userInfo }) => {
   const { user_id, host, refresh_token, headers } = userInfo;
 
   const reqBody = bodyParams !== undefined ? bodyParams : { refresh_token };
-  const email = bodyParams !== undefined ? bodyParams.email : '';
-  const password = bodyParams !== undefined ? bodyParams.password : '';
+  const { email = '', password = '' } = bodyParams || {};
 
   const isLoginURL = email && password;
 
