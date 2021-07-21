@@ -6,7 +6,7 @@ const getHeader_X_SP_GAGEWAY = ({ client_id, client_secret }) => {
 };
 
 const getHeader_X_SP_USER = ({ oauth_key, fingerprint }) => {
-  if (oauth_key && fingerprint) return `${oauth_key}|${fingerprint}`;
+  if ((oauth_key && fingerprint) || (oauth_key && fingerprint === '')) return `${oauth_key}|${fingerprint}`;
   if (oauth_key && !fingerprint) return oauth_key;
   if (!oauth_key && fingerprint) return `|${fingerprint}`;
   return 'xxxx|xxxx';
