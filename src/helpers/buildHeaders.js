@@ -1,4 +1,4 @@
-const validFP = value => value === '' || value.length > 0;
+const validFP = value => typeof value === 'string' ? (value === '' || value.length > 0) : false;
 
 const getHeader_X_SP_GAGEWAY = ({ client_id, client_secret }) => {
   if (client_id && client_secret) return `${client_id}|${client_secret}`;
