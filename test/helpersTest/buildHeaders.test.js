@@ -56,4 +56,23 @@ describe('buildHeaders', () => {
 
     expect(outputHeaders).to.deep.equal(targetHeaders);
   });
+  
+  it('build header with blank fingerprint', () => {
+    const outputHeaders = buildHeaders({
+      client_id: 'CLIENT_ID',
+      client_secret: 'CLIENT_SECRET',
+      oauth_key: 'OAUTH_KEY',
+      fingerprint: '',
+      ip_address: 'IP_ADDRESS',
+    });
+
+    const targetHeaders = {
+      'Content-Type': 'application/json',
+      'X-SP-USER-IP': 'IP_ADDRESS',
+      'X-SP-GATEWAY': 'CLIENT_ID|CLIENT_SECRET',
+      'X-SP-USER': 'OAUTH_KEY|',
+    };
+
+    expect(outputHeaders).to.deep.equal(targetHeaders);
+  });
 });
